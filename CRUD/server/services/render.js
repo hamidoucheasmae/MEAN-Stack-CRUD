@@ -35,3 +35,7 @@ module.exports.updateUserRoute = (req, res) => {
             res.send(err);
         });
 };
+
+module.exports.loginRoute = (req, res) => {
+    return res.render("login");
+};
