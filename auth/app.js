@@ -9,7 +9,7 @@ const passport = require('passport');
 require("./config/passport")(passport)
 
 //mongoose
-mongoose.connect("mongodb+srv://dahri:dahri2021@cluster0.unjrx.mongodb.net/mydb?retryWrites=true&w=majority",{useNewUrlParser: true, useUnifiedTopology : true})
+mongoose.connect("mongodb+srv://ah-user:ah-user@cluster0.y8kt0.mongodb.net/auth-db?retryWrites=true&w=majority",{useNewUrlParser: true, useUnifiedTopology : true})
 .then(() => console.log('connected'))
 .catch((err)=> console.log(err));
 //EJS
