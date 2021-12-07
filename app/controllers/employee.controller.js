@@ -13,6 +13,12 @@ exports.create = (req, res) => {
 if(req.body.password.length < 6 ) {
     return res.status(400).send({msg : 'password atleast 6 characters'})
 }
+
+// CHOF HADA M3AK
+// if(req.body.email = email) {
+//     return res.status(400).send({msg : 'mail already exis '})
+// }
+
 // else{
 //     Employee.findOne({email : email}).exec((err,Employee)=>{
 //         console.log(Employee);   
