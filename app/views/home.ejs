@@ -15,12 +15,12 @@
         </div>
     </nav>
     <div class="container">
+        <a href="/add">Add user</a>
         <h2>Employee list</h2>
         <table class="table">
             <thead>
                 <tr>
                     <th>Username</th>
-                    
                     <th>E-mail</th>
                     <th>Actions</th>
                 </tr>
@@ -31,12 +31,9 @@
                     <td>
                         <%= data[i].username %>
                     </td>
-                  
-                  
                     <td>
                         <%= data[i].email %>
                     </td>
-
                     <td>
                         <a class="btn btn-link edit" data-id="<%= data[i]._id %>" >Edit</a>|
                         <a class="btn btn-link delete" data-id="<%= data[i]._id %>" >Delete</a>

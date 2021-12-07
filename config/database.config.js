@@ -1,6 +1,3 @@
-// module.exports = {
-//   url: "mongodb+srv://ah-user:ah-user@cluster0.y8kt0.mongodb.net/auth-crud?retryWrites=true&w=majority",  useNewUrlParser: true, useUnifiedTopology: true 
-// }
 
 
 module.exports = {
@@ -14,4 +11,3 @@ module.exports = {
 //   const collection = client.db("test").collection("devices");
 //   // perform actions on the collection object
 //   client.close();
-
