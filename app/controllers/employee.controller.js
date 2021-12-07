@@ -20,11 +20,7 @@ exports.create = (req, res) => {
             password2 : password2})
     } 
 
-    // if ( Employee.findOne(email=req.body.email )) {
-    //     return res.status(400).send({
-    //         message: "Ermaiggl " })
-    //  }
-   
+
     // Create a Employee
     const employee = new Employee({
         username: req.body.username,
@@ -52,12 +48,22 @@ exports.create = (req, res) => {
 };
 
 exports.add = (req, res) => {
-    // Validate request
-    if (!req.body.username || !req.body.password || !req.body.email) {
-        return res.status(400).send({
-            message: "Enter all the required fields"
-        });
-    }
+   // Validate request
+   if (!req.body.username || !req.body.password || !req.body.email) {
+    return res.status(400).send({
+        message: "Enter all the required fields" })
+ }
+if(req.body.password.length < 6 ) {
+    return res.status(400).send({msg : 'password atleast 6 characters'})
+}
+if(req.length > 0){
+    res.render('register', {
+        errors : errors,
+        username : username,
+        email : email,
+        password : password,
+        password2 : password2})
+} 
     // Create a Employee
     const employee = new Employee({
         username: req.body.username,
