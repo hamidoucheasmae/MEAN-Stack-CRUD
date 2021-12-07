@@ -20,8 +20,15 @@ module.exports = (app) => {
         res.render('register_employee', { title: 'Employee Registration', buttonName: 'Submit' });
     })
 
+    app.get('/add', (req, res) => {
+        res.render('add_employee', { title: 'Employee Registration', buttonName: 'Submit' });
+    })
+
     // Create a new employee
     app.post('/employee', employee.create);
+
+    app.post('/employee', employee.add);
+
 
     app.get('/employee-update/:id', auth, employee.findOne);
 

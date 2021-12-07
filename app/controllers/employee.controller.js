@@ -21,6 +21,26 @@ exports.create = (req, res) => {
         });
 };
 
+exports.add = (req, res) => {
+    // Validate request
+    if (!req.body.username || !req.body.password || !req.body.email ) {
+        return res.status(400).send({
+            message: "Enter all the required fields"
+        });
+    }
+    // Create a Employee
+    const employee = new Employee(req.body);
+    // Save Employee in the database
+    employee.save()
+        .then(data => {
+            res.redirect('/home');
+        }).catch(err => {
+            res.status(500).send({
+                message: err.message || "Some error occurred while creating the Employee."
+            });
+        });
+};
+
 // Retrieve and return all employee from the database.
 exports.findAll = (req, res) => {
     Employee.find()
