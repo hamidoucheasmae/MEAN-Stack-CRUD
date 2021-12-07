@@ -6,8 +6,47 @@ exports.create = (req, res) => {
     if (!req.body.username || !req.body.password || !req.body.email ) {
         return res.status(400).send({
             message: "Enter all the required fields"
-        });
+        
+        })  
     }
+    //check if password is more than 6 characters
+if(req.body.password.length < 6 ) {
+    return res.status(400).send({msg : 'password atleast 6 characters'})
+}
+// else{
+//     Employee.findOne({email : email}).exec((err,Employee)=>{
+//         console.log(Employee);   
+//         if(Employee) {
+//             return res.status(400).send({msg: 'email already exist'});
+//             render(res,err,username,email);
+            
+//         } else {
+//          const newUser = new User({
+//              username : username,
+//              email : email,
+//              password : password
+//          })
+           
+            
+//            }
+// Find a single employee with a EmployeeId
+// exports.findOne =  (req, res) => {
+//     Employee.findByEmail(req.params.email)
+//         .then(employee => {
+//             if (!employee) {
+//                 return res.status(404).send({
+//                     message: "duplicate email" + req.params.email
+//                 });
+//             }
+        
+        // });
+
+// };
+
+
+
+
+
     // Create a Employee
     const employee = new Employee(req.body);
     // Save Employee in the database
