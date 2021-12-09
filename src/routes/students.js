@@ -43,7 +43,7 @@ router.post('/students/new-students', isAuthenticated, async(req, res)=>{
 
         if(emailExist){
             req.flash('error_msg', 'The Email exist')
-            errors.push({text: 'The Email exist'})
+            res.redirect('/students')
         }
 
         const newUser = new User({ 
@@ -108,7 +108,7 @@ router.get('/students/edit/:id', isAuthenticated, async(req, res)=>{
         return {
             name: data.name,
             email: data.email,
-            password: data.password,
+         
             _id: data._id
         }
     })
@@ -117,8 +117,8 @@ router.get('/students/edit/:id', isAuthenticated, async(req, res)=>{
 })
 
 router.put('/students/edit-student/:id', isAuthenticated,  async(req, res) => {
-    const { name, email,password } = req.body
-    await User.findByIdAndUpdate(req.params.id, {name, email,password})
+    const { name, email } = req.body
+    await User.findByIdAndUpdate(req.params.id, {name, email})
     req.flash('success_msg', 'student edited Succesfully')
     res.redirect('/students')
 })

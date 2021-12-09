@@ -1,28 +1,29 @@
 {
-  "name": "crud-auth-node-mongodb",
-  "version": "1.0.0",
-  "description": "CRUD with login",
-  "main": "index.js",
-  "scripts": {
-    "start": "nodemon src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@handlebars/allow-prototype-access": "^1.0.3",
-    "bcrypt": "^5.0.0",
-    "connect-flash": "^0.1.1",
-    "express": "^4.17.1",
-    "express-handlebars": "^3.1.0",
-    "express-session": "^1.17.1",
-    "method-override": "^3.0.0",
-    "mongoose": "^5.10.11",
-    "passport": "^0.4.1",
-    "passport-local": "^1.0.0"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.6"
+    "name": "crud-auth-node-mongodb",
+    "version": "1.0.0",
+    "description": "CRUD with login",
+    "main": "index.js",
+    "scripts": {
+      "start": "nodemon src/index.js",
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "@handlebars/allow-prototype-access": "^1.0.3",
+      "bcrypt": "^5.0.1",
+      "connect-flash": "^0.1.1",
+      "express": "^4.17.1",
+      "express-handlebars": "^3.1.0",
+      "express-session": "^1.17.1",
+      "method-override": "^3.0.0",
+      "mongoose": "^5.10.11",
+      "passport": "^0.4.1",
+      "passport-local": "^1.0.0"
+    },
+    "devDependencies": {
+      "nodemon": "^2.0.6"
+    }
   }
-}
+  
