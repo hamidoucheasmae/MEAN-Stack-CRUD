@@ -14,8 +14,9 @@ import { MemberService } from 'src/app/_services/member.service';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
+
   members?: Member[];
-  currentUser: any;
+  currentMember: Member = {};
   currentIndex = -1;
   username = '';
 
@@ -26,7 +27,7 @@ export class AdminComponent implements OnInit {
   ngOnInit(): void {
     this.retrieveMembers();
 
-    this.currentUser = this.tokenStorageService.getUser();
+    this.currentMember = this.tokenStorageService.getUser();
 
     this.userService.getAdminBoard().subscribe(
       data => {
@@ -58,12 +59,12 @@ export class AdminComponent implements OnInit {
 
   refreshList(): void {
     this.retrieveMembers();
-    this.currentUser = {};
+    this.currentMember = {};
     this.currentIndex = -1;
   }
 
   setActiveMember(member: Member, index: number): void {
-    this.currentUser = member;
+    this.currentMember = member;
     this.currentIndex = index;
   }
 
@@ -73,16 +74,17 @@ export class AdminComponent implements OnInit {
       .subscribe(
         response => {
           console.log(response);
-          this.refreshList();
+          this.logout();
         },
         error => {
           console.log(error);
+          
         });
   }
 
 
   searchMember(): void {
-    this.currentUser = {};
+    this.currentMember = {};
     this.currentIndex = -1;
 
     this.memberService.findByUser(this.username)
@@ -95,5 +97,18 @@ export class AdminComponent implements OnInit {
           console.log(error);
         });
   }
+
+  // deleteMember(): void {
+  //   this.memberService.delete(this.currentUser.id)
+  //     .subscribe(
+  //       response => {
+  //         console.log(response);
+  //         this.router.navigate(['/admin']);
+  //       },
+  //       error => {
+  //         console.log(error);
+  //       });
+  // }
+
 
 }

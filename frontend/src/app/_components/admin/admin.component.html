@@ -14,7 +14,7 @@
             <img class="img-responsive img-rounded" src="https://cdn-icons.flaticon.com/png/512/3404/premium/3404470.png?token=exp=1637335301~hmac=cf1a1579bb2e74f38d5ae6aa5bd4beab" alt="User picture">
           </div>
           <div class="user-info" >
-            <span class="user-name mt-2">{{currentUser.username}}</span>
+            <span class="user-name mt-2">{{currentMember.username}}</span>
             <span class="user-role">Administrator</span>
           </div>
         </div>
@@ -84,6 +84,7 @@
                 <button class="btn btn-outline-secondary" (click)="removeAllMembers()">
                   Remove All
                 </button>
+                <app-add-member></app-add-member>
               </div>
              
             </div>
@@ -102,12 +103,13 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let member of members; let i = index" [class.active]="i == currentIndex" (click)="setActiveMember(member, i)" >
+                <tr *ngFor="let member of members; let i = index" [class.active]="i == currentIndex"  >
                 
                   <td > {{ member.username }} </td>
                   <td > {{ member.email }}</td>
-                  <td > <i class="fas fa-user-edit"></i> </td>
-                  <td > <i class="fas fa-user-times"></i> </td>
+                  <td >  <app-member-details></app-member-details></td>
+                  <td  > <i class="fas fa-user-times"></i> </td>
+                  <!-- <button (click)="deleteMember()"></button> -->
                 </tr>
               
               </tbody>
@@ -133,20 +135,7 @@
           </td>
         </tr> -->
             <!--  -->
-            <div class="col-md-3">
-              <div class="card">
-                  <div class="card-body">
-                      <h4 class="card-title d-flex justify-content-between align-items-center">
-                           {{currentUser.username}} <a href=""><i class="fas fa-edit"></i></a>
-                      </h4>
-                      <p>{{user.email}}</p>
-                      <form action="" method="POST">
-                          <input type="hidden" name="_method" value="DELETE">
-                          <button class="btn btn-danger btn-block btn-sm" type="submit">delete</button>
-                      </form>
-                  </div>
-              </div>
-          </div>
+     
           
 
 
