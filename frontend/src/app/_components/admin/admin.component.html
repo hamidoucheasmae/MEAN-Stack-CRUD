@@ -88,17 +88,46 @@
                 <li>{{content}}</li>
             </ul>
             </div> -->
-
-            <ul class="list-group">
-              <li
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">username</th>
+                  <th scope="col">email</th>
+                  <th scope="col">delee</th>
+                  <th scope="col">update</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let member of members; let i = index" [class.active]="i == currentIndex" (click)="setActiveMember(member, i)" >
+                
+                  <td > {{ member.username }} </td>
+                  <td > {{ member.email }}</td>
+                  <td > <i class="fas fa-user-edit"></i> </td>
+                  <td > <i class="fas fa-user-times"></i> </td>
+                </tr>
+              
+              </tbody>
+            </table>
+            <!-- table -->
+<!-- 
+            <tr class="list-group">
+              <td
                 class="list-group-item"
                 *ngFor="let member of members; let i = index"
                 [class.active]="i == currentIndex"
                 (click)="setActiveMember(member, i)"
               >
                 {{ member.username }}
-              </li>
-            </ul>
+            </td>
+              <td
+              class="list-group-item"
+              *ngFor="let member of members; let i = index"
+              [class.active]="i == currentIndex"
+              (click)="setActiveMember(member, i)"
+            >
+              {{ member.email }}
+          </td>
+        </tr> -->
             <!--  -->
             <div class="col-md-3">
               <div class="card">
