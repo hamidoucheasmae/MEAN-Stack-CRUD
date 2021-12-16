@@ -64,11 +64,42 @@
     <main class="page-content">
       <div class="container">
         <div class="row">
+
+          
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Search by username"
+                [(ngModel)]="username"
+              />
+              <div class="input-group-append">
+                <button
+                  class="btn btn-outline-secondary"
+                  type="button"
+                  (click)="searchMember()"
+                >
+                  Search
+                </button>
+              </div>
+            </div>
             <!-- <div class="col" >
                 <ul>
                 <li>{{content}}</li>
             </ul>
             </div> -->
+
+            <ul class="list-group">
+              <li
+                class="list-group-item"
+                *ngFor="let member of members; let i = index"
+                [class.active]="i == currentIndex"
+                (click)="setActiveMember(member, i)"
+              >
+                {{ member.username }}
+              </li>
+            </ul>
+            <!--  -->
             <div class="col-md-3">
               <div class="card">
                   <div class="card-body">
