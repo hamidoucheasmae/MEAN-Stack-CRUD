@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
   <div class="submit-form">
     <div *ngIf="!submitted">
       <div class="form-group">
@@ -41,6 +41,53 @@
 
     <div *ngIf="submitted">
       <h4>member was submitted successfully!</h4>
+      <button class="btn btn-success" (click)="newMember()">Add</button>
+    </div>
+  </div>
+</div> -->
+
+<div>
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input
+          type="text"
+          class="form-control"
+          id="username"
+          required
+          [(ngModel)]="member.username"
+          name="username"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="email">email</label>
+        <input
+          class="form-control"
+          id="email"
+          required
+          [(ngModel)]="member.email"
+          name="email"
+        />
+      </div>
+
+      <div class="form-group">
+          <label for="password">password</label>
+          <input
+            class="form-control"
+            id="password"
+            required
+            [(ngModel)]="member.password"
+            name="password"
+          />
+        </div>
+
+      <button (click)="saveMember()" class="btn btn-success">Submit</button>
+    </div>
+
+    <div *ngIf="submitted">
+      <h4>Member was submitted successfully!</h4>
       <button class="btn btn-success" (click)="newMember()">Add</button>
     </div>
   </div>

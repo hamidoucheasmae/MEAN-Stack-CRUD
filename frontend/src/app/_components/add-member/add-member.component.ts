@@ -1,6 +1,60 @@
+// import { Component, OnInit } from '@angular/core';
+// import { Member } from 'src/app/models/member.model';
+// import { MemberService } from '../../_services/member.service';
+
+// @Component({
+//   selector: 'app-add-member',
+//   templateUrl: './add-member.component.html',
+//   styleUrls: ['./add-member.component.css']
+// })
+// export class AddMemberComponent implements OnInit {
+
+//   member: Member ={
+//     username:'',
+//     email:'',
+//     password:'',
+//   };
+//   submitted = false;
+
+//   constructor( private memberService:MemberService) { }
+
+//   ngOnInit():void {
+//   }
+
+//   saveMember(): void {
+//     const data = {
+//       // id:this.member.id,
+//       username: this.member.username,
+//       email: this.member.email,
+//       password:this.member.password,
+//     };
+
+//     this.memberService.create(data)
+//       .subscribe(
+//         response => {
+//           console.log(response);
+//           this.submitted = true;
+//         },
+//         error => {
+//           console.log(error);
+//         });
+//   }
+
+//   newMember(): void {
+//     this.submitted = false;
+//     this.member = {
+
+//       username:'',
+//       email:'',
+//       password:'',
+//     };
+//   }
+
+
+// }
 import { Component, OnInit } from '@angular/core';
 import { Member } from 'src/app/models/member.model';
-import { MemberService } from '../../_services/member.service';
+import { MemberService } from 'src/app/_services/member.service';
 
 @Component({
   selector: 'app-add-member',
@@ -9,46 +63,41 @@ import { MemberService } from '../../_services/member.service';
 })
 export class AddMemberComponent implements OnInit {
 
-  member: Member ={
-    username:'',
-    email:'',
-    password:'',
+  member: Member = {
+    username: '',
+    email: '',
+    password: ''
   };
   submitted = false;
 
-  constructor( private memberService:MemberService) { }
+  constructor( private memberService: MemberService) { }
 
-  ngOnInit():void {
-  }
+  ngOnInit(): void { }
 
-  saveMember(): void {
+  saveMember(): void{
     const data = {
-      // id:this.member.id,
-      username: this.member.username,
+      username : this.member.username,
       email: this.member.email,
-      password:this.member.password,
+      password: this.member.password
     };
 
     this.memberService.create(data)
-      .subscribe(
-        response => {
-          console.log(response);
-          this.submitted = true;
-        },
-        error => {
-          console.log(error);
-        });
+    .subscribe(
+      response => {
+        console.log(response);
+        this.submitted = true;
+      },
+      err =>{
+        console.log(err);
+        
+      });
   }
 
-  newMember(): void {
+  newMember() : void {
     this.submitted = false;
     this.member = {
-
-      username:'',
-      email:'',
-      password:'',
+      username : '',
+      email: ''
     };
   }
-
-
 }
