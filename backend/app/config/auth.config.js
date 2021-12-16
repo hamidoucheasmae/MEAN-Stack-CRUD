@@ -1,3 +1,3 @@
 module.exports = {
-  secret: "dahri-secret-key"
+  secret: "ah-secret-key"
 };
