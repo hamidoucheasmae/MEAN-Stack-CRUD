@@ -70,7 +70,7 @@
               <input
                 type="text"
                 class="form-control"
-                placeholder="Search by username"
+                placeholder="Search by "
                 [(ngModel)]="username"
               />
               <div class="input-group-append">
@@ -103,10 +103,10 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let member of members; let i = index" [class.active]="i == currentIndex"  >
-                
-                  <td > {{ member.username }} </td>
-                  <td > {{ member.email }}</td>
+                <tr  >
+                  <!-- *ngFor="let member of members; let i = index" [class.active]="i == currentIndex"  -->
+                  <td  *ngFor="let member of members; let i = index" [class.active]="i == currentIndex"> {{ currentMember.username }} </td>
+                  <td  *ngFor="let member of members; let i = index" [class.active]="i == currentIndex" > {{ currentMember.email }}</td>
                   <td >  <app-member-details></app-member-details></td>
                   <td  > <i class="fas fa-user-times"></i> </td>
                   <!-- <button (click)="deleteMember()"></button> -->

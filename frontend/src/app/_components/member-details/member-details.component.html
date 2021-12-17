@@ -1,7 +1,7 @@
 
 <div>
 
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1"   >
       update
     </button>
 
@@ -20,7 +20,7 @@
         </div>
         <div class="modal-body">
 <div>
-    <div *ngIf="currentMember.id" class="edit-form">
+    <div *ngIf="currentMember._id" class="edit-form">
       <h4>user</h4>
       <form>
         <div class="form-group">
@@ -29,7 +29,7 @@
             type="text"
             class="form-control"
             id="username"
-            [(ngModel)]="currentMember.username"
+            [(ngModel)]="member.username"
             name="username"
             />
         </div>
@@ -39,12 +39,12 @@
             type="text"
             class="form-control"
             id="email"
-            [(ngModel)]="currentMember.email"
+           {{ member.username}}
             name="email"
             />
         </div>
       </form>
-  
+      {{ member.username}}
       <button class="badge badge-danger mr-2" (click)="deleteMember()">
         Delete
       </button>

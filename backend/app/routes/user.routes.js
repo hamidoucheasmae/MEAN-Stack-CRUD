@@ -17,7 +17,7 @@ const controller = require("../controllers/user.controller");
     app.get("/api/test/all", controller.allAccess);
 
     app.get("/api/test/user",
-      [authJwt.verifyToken],
+      [authJwt.verifyToken, authJwt.isUser],
       controller.userBoard);
 
     app.get(

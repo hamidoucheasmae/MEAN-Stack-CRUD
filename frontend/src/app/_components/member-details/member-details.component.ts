@@ -12,7 +12,7 @@ import { Member } from 'src/app/models/member.model';
 export class MemberDetailsComponent implements OnInit {
   members?: Member[];
   currentMember: Member = {
-    id:'',
+    _id:'',
     username: '',
     email: '',
     password: '',
@@ -50,7 +50,7 @@ export class MemberDetailsComponent implements OnInit {
   updateMember(): void {
     this.message = '';
 
-    this.memberService.update(this.currentMember.id, this.currentMember)
+    this.memberService.update(this.currentMember._id, this.currentMember)
       .subscribe(
         response => {
           console.log(response);
