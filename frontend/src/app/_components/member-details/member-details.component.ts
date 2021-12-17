@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Member } from 'src/app/models/member.model';
 import { MemberService } from 'src/app/_services/member.service';
-import { UserService } from 'src/app/_services/user.service';
-import { TokenStorageService } from 'src/app/_services/token-storage.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Member } from 'src/app/models/member.model';
+
 
 @Component({
   selector: 'app-member-details',
@@ -12,36 +11,34 @@ import { Router } from '@angular/router';
 })
 export class MemberDetailsComponent implements OnInit {
   members?: Member[];
-  currentUser: any;
+  currentMember: Member = {
+    id:'',
+    username: '',
+    email: '',
+    password: '',
+  };
+  // currentMember:any;
+  message = '';
   currentIndex = -1;
-  username = '';
 
+  constructor(
+    private memberService : MemberService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) { }
 
-
-
-  constructor(private userService: UserService, private tokenStorageService: TokenStorageService, private router : Router,private memberService:MemberService) { }
+ 
 
   ngOnInit(): void {
-    this.retrieveMembers();
-
-    this.currentUser = this.tokenStorageService.getUser();
-
-    this.userService.getAdminBoard().subscribe(
-      data => {
-        this.members = data;
-      },
-      err => {
-        this.router.navigate(['/login'])
-         return false
-      }
-    );
+    this.message = '';
+    this.getMember(this.route.snapshot.params.id);
   }
 
-  retrieveMembers(): void {
-    this.memberService.getAll()
+  getMember(id: string): void {
+    this.memberService.get(id)
       .subscribe(
         data => {
-          this.members = data;
+          this.currentMember = data;
           console.log(data);
         },
         error => {
@@ -49,14 +46,38 @@ export class MemberDetailsComponent implements OnInit {
         });
   }
 
-  refreshList(): void {
-    this.retrieveMembers();
-    this.currentUser = {};
-    this.currentIndex = -1;
+
+  updateMember(): void {
+    this.message = '';
+
+    this.memberService.update(this.currentMember.id, this.currentMember)
+      .subscribe(
+        response => {
+          console.log(response);
+          this.message = response.message ? response.message : 'This useer was updated successfully!';
+        },
+        error => {
+          console.log(error);
+        });
   }
-  setActiveMember(member: Member, index: number): void {
-    this.currentUser = member;
-    this.currentIndex = index;
+
+   
+   deleteMember(): void {
+    this.memberService.delete(this.currentMember.id)
+      .subscribe(
+        response => {
+          console.log(response);
+          this.router.navigate(['/admin']);
+        },
+        error => {
+          console.log(error);
+        });
   }
+
+
+  // setActiveMember(member: Member, index: number): void {
+  //   this.currentMember = member;
+  //   this.currentIndex = index;
+  // }
 
 }

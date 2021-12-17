@@ -1,94 +1,60 @@
-<!-- <div>
-  <div class="submit-form">
-    <div *ngIf="!submitted">
-      <div class="form-group">
-        <label for="username">username</label>
-        <input
-          type="text"
-          class="form-control"
-          id="username"
-          required
-          [(ngModel)]="member.username"
-          name="username"
-        />
-      </div>
-
-      <div class="form-group">
-        <label for="email">emmail</label>
-        <input
-          class="form-control"
-          id="email"
-          required
-          [(ngModel)]="member.email"
-          name="email"
-        />
-      </div>
-
-      <div class="form-group">
-        <label for="password">^password</label>
-        <input
-        type="password"
-          class="form-control"
-          id="password"
-          required
-          [(ngModel)]="member.password"
-          name="password"
-        />
-      </div>
-
-      <button (click)="saveMember()" class="btn btn-success">Submit</button>
-    </div>
-
-    <div *ngIf="submitted">
-      <h4>member was submitted successfully!</h4>
-      <button class="btn btn-success" (click)="newMember()">Add</button>
-    </div>
-  </div>
-</div> -->
-
 <div>
-  <div class="submit-form">
-    <div *ngIf="!submitted">
-      <div class="form-group">
-        <label for="username">Username</label>
-        <input
-          type="text"
-          class="form-control"
-          id="username"
-          required
-          [(ngModel)]="member.username"
-          name="username"
-        />
-      </div>
 
-      <div class="form-group">
-        <label for="email">email</label>
-        <input
-          class="form-control"
-          id="email"
-          required
-          [(ngModel)]="member.email"
-          name="email"
-        />
-      </div>
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Add member
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">New member</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
 
-      <div class="form-group">
-          <label for="password">password</label>
-          <input
-            class="form-control"
-            id="password"
-            required
-            [(ngModel)]="member.password"
-            name="password"
-          />
+          <div class="submit-form">
+            <div *ngIf="!submitted">
+              <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" required  [(ngModel)]="member.username" name="username"/>
+              </div>
+        
+              <div class="form-group">
+                <label for="email">email</label>
+                <input class="form-control" id="email" required [(ngModel)]="member.email" name="email" />
+              </div>
+      
+              <div class="form-group">
+                  <label for="password">password</label>
+                  <input
+                    class="form-control"
+                    id="password"
+                    required
+                    [(ngModel)]="member.password"
+                    name="password"
+                  />
+                </div>
+        
+              <button (click)="saveMember()" class="btn btn-success mt-2">Submit</button>
+            </div>
+
+            <div *ngIf="!isFailed">
+              <h4>{{ errorMessage }}</h4>
+            </div>
+
+            <div *ngIf="submitted">
+              <h4>Member was submitted successfully!</h4>
+              <button class="btn btn-secondary" (click)="newMember()" data-bs-dismiss="modal">close</button>
+            </div> 
+
+          </div>
         </div>
 
-      <button (click)="saveMember()" class="btn btn-success">Submit</button>
-    </div>
-
-    <div *ngIf="submitted">
-      <h4>Member was submitted successfully!</h4>
-      <button class="btn btn-success" (click)="newMember()">Add</button>
+      </div>
     </div>
   </div>
-</div>
+  
+    
+  </div>
