@@ -1,3 +1,6 @@
+const { verifySignUp } = require("../middlewares");
+const controller = require("../controllers/members.controller");
+
 module.exports = app => {
 
     const members = require("../controllers/members.controller.js");
@@ -5,7 +8,11 @@ module.exports = app => {
       var router = require("express").Router();
     
       // Create a new members
-      router.post("/", members.create);
+      router.post("/", members.create,
+      [
+        verifySignUp.checkDuplicatedUsernameOrEmail,
+      ],
+      );
     
       // Retrieve all members
       router.get("/", members.findAll);

@@ -1,8 +1,3 @@
-   <!-- include material design icons -->
-   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-
-
-
 <div class="page-wrapper chiller-theme toggled">
     <nav id="sidebar" class="sidebar-wrapper">
       <div class="sidebar-content">
@@ -14,7 +9,8 @@
             <img class="img-responsive img-rounded" src="https://cdn-icons.flaticon.com/png/512/3404/premium/3404470.png?token=exp=1637335301~hmac=cf1a1579bb2e74f38d5ae6aa5bd4beab" alt="User picture">
           </div>
           <div class="user-info" >
-            <span class="user-name mt-2">{{currentMember.username}}</span>
+            <span class="user-name mt-2">
+              <a class="text-white" routerLink="/profile">{{currentUser.username}}</a> </span>
             <span class="user-role">Administrator</span>
           </div>
         </div>
@@ -38,7 +34,7 @@
               <span>Extra</span>
             </li>
             <li>
-              <a routerLink="/products" >
+              <a routerLink="/home" >
                 <i class="fa fa-archive"></i>
                 <span>Stock</span>
               </a>
@@ -64,81 +60,8 @@
     <main class="page-content">
       <div class="container">
         <div class="row">
-
-          
-            <div class="input-group mb-3">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Search by "
-                [(ngModel)]="username"
-              />
-              <div class="input-group-append">
-                <button
-                  class="btn btn-outline-secondary"
-                  type="button"
-                  (click)="searchMember()"
-                >
-                  Search
-                </button>
-                <button class="btn btn-outline-secondary" (click)="removeAllMembers()">
-                  Remove All
-                </button>
-                <app-add-member></app-add-member>
-              </div>
-             
-            </div>
-            <!-- <div class="col" >
-                <ul>
-                <li>{{content}}</li>
-            </ul>
-            </div> -->
-            <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col">username</th>
-                  <th scope="col">email</th>
-                  <th scope="col">delee</th>
-                  <th scope="col">update</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr  >
-                  <!-- *ngFor="let member of members; let i = index" [class.active]="i == currentIndex"  -->
-                  <td  *ngFor="let member of members; let i = index" [class.active]="i == currentIndex"> {{ currentMember.username }} </td>
-                  <td  *ngFor="let member of members; let i = index" [class.active]="i == currentIndex" > {{ currentMember.email }}</td>
-                  <td >  <app-member-details></app-member-details></td>
-                  <td  > <i class="fas fa-user-times"></i> </td>
-                  <!-- <button (click)="deleteMember()"></button> -->
-                </tr>
-              
-              </tbody>
-            </table>
-            <!-- table -->
-<!-- 
-            <tr class="list-group">
-              <td
-                class="list-group-item"
-                *ngFor="let member of members; let i = index"
-                [class.active]="i == currentIndex"
-                (click)="setActiveMember(member, i)"
-              >
-                {{ member.username }}
-            </td>
-              <td
-              class="list-group-item"
-              *ngFor="let member of members; let i = index"
-              [class.active]="i == currentIndex"
-              (click)="setActiveMember(member, i)"
-            >
-              {{ member.email }}
-          </td>
-        </tr> -->
-            <!--  -->
-     
-          
-
-
+          <app-add-member></app-add-member>
+          <app-members-list></app-members-list>
         </div>
       </div>
   

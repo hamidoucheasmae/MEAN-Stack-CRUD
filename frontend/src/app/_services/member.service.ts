@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Member } from '../models/member.model';
+import { Member } from '../_models/member.model';
 
 const baseUrl = 'http://localhost:8001/api/members';
-
 
 @Injectable({
   providedIn: 'root'
@@ -37,7 +36,7 @@ export class MemberService {
     return this.http.delete(baseUrl);
   }
 
-  findByUser(username: any): Observable<Member[]> {
+  findByUsername(username: any): Observable<Member[]> {
     return this.http.get<Member[]>(`${baseUrl}?username=${username}`);
   }
 }

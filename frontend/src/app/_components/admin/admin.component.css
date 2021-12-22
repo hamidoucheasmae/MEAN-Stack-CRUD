@@ -184,6 +184,7 @@
   .sidebar-wrapper .sidebar-header .user-info > span {
     font-family: 'M PLUS 1', sans-serif ;
     display: block;
+    text-transform: capitalize;
   }
   
   .sidebar-wrapper .sidebar-header .user-info .user-role {

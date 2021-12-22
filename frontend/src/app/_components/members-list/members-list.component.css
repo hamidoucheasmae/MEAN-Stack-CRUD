@@ -1,0 +1,21 @@
+tbody td {
+    cursor: pointer;
+}
+
+.btn-danger{
+    background: #b52b65;
+}
+
+.btn-primary{
+    background: rgb(3, 3, 55);
+}
+
+.btn-outline-danger{
+    border: #b52b65 1px solid;
+    color: #b52b65;
+}
+
+.btn-outline-danger:hover{
+    background: #b52b65;
+    color: #fff;
+}

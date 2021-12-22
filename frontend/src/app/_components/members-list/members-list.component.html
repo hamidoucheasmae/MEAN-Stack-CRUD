@@ -1,0 +1,72 @@
+<div class="list row">
+    <div class="col">
+        <!-- <div class="input-group my-3">
+            <input type="text" class="form-control" placeholder="Search by username" [(ngModel)]="username" />
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="button" (click)="searchUsername()" > Search </button>
+            </div>
+          </div> -->
+    </div>
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let member of members; let i = index" [class.active]="i == currentIndex" (click)="setActiveMembers(member, i)">
+          <td>{{ member.username}}</td>
+          <td>{{ member.email}}</td>
+
+        </tr>
+      </tbody>
+    </table>
+
+
+        <!-- Modal -->
+
+    <button type="button" class="my-1 btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">Edit Member <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+
+    <button type="button" class="my-1 btn btn-outline-danger"  (click)="deleteMember()">Delete Member <i class="fa fa-trash-o" aria-hidden="true"></i></button>
+
+        
+    <button class="my-1 btn btn-danger" (click)="removeAllMembers()"> Delete All Members </button>
+  
+        <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel1">Update member</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+      
+                <div class="submit-form">
+                  <div *ngIf="currentMember.id">
+                    <div class="form-group">
+                      <label for="username">Username</label>
+                      <input type="text" class="form-control username-inp" id="username" required  [(ngModel)]="currentMember.username"
+                       name="username" />
+                    </div>
+              
+                    <div class="form-group">
+                      <label for="email">email</label>
+                      <input class="form-control email-inp" id="email" required  name="email" />
+                    </div>
+              
+                  </div>
+      
+                  <div >
+                    <button class="btn btn-primary my-2" (click)="updateMember()" data-bs-dismiss="modal">Save changes</button>
+                  </div> 
+      
+                </div>
+              </div>
+      
+            </div>
+          </div>
+        </div>
+
+    </div>

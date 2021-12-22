@@ -1,6 +1,5 @@
-
 import { Component, OnInit } from '@angular/core';
-import { Member } from 'src/app/models/member.model';
+import { Member } from 'src/app/_models/member.model';
 import { MemberService } from 'src/app/_services/member.service';
 
 @Component({
@@ -51,5 +50,6 @@ export class AddMemberComponent implements OnInit {
       username : '',
       email: ''
     };
+    window.location.reload();
   }
 }

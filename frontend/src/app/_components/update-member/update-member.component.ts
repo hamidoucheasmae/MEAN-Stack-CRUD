@@ -3,12 +3,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Member } from 'src/app/_models/member.model';
 import { MemberService } from 'src/app/_services/member.service';
 
+
 @Component({
-  selector: 'app-member-details',
-  templateUrl: './member-details.component.html',
-  styleUrls: ['./member-details.component.css']
+  selector: 'app-update-member',
+  templateUrl: './update-member.component.html',
+  styleUrls: ['./update-member.component.css']
 })
-export class MemberDetailsComponent implements OnInit {
+export class UpdateMemberComponent implements OnInit {
 
   currentMember : Member = {
     username: '',
@@ -17,17 +18,15 @@ export class MemberDetailsComponent implements OnInit {
   };
   message = '';
 
-  constructor(private memberService: MemberService, private route: ActivatedRoute,
-    private router: Router) { }
+  constructor(private memberService: MemberService, private router : Router, private route : ActivatedRoute) { }
 
   ngOnInit() {
-    
     this.message = '';
-    this.getMember(this.route.snapshot.params.id);
-  }
+    this.getMembers(this.route.snapshot.params.id); 
+   }
 
-  getMember(id: string): void {
-    this.memberService.get(id)
+   getMembers(_id: string): void {
+    this.memberService.get(_id)
       .subscribe(
         data => {
           this.currentMember = data;
@@ -36,8 +35,10 @@ export class MemberDetailsComponent implements OnInit {
         error => {
           console.log(error);
         });
-  }
 
+      }
+
+  
   updateMember(): void {
     this.message = '';
 
@@ -52,16 +53,4 @@ export class MemberDetailsComponent implements OnInit {
         });
   }
 
-
-  deleteMember(): void {
-    this.memberService.delete(this.currentMember._id)
-      .subscribe(
-        response => {
-          console.log(response);
-          this.router.navigate(['/members']);
-        },
-        error => {
-          console.log(error);
-        });
-  }
 }
