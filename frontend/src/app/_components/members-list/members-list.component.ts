@@ -82,9 +82,15 @@ export class MembersListComponent implements OnInit {
     this.currentIndex = index;
     console.log(members);
     console.log(index);
-    document.querySelector('.username-inp').value =this.currentMember.username;
-    document.querySelector('.email-inp').value =this.currentMember.email;
+    // document.querySelector('.username-inp').value =this.currentMember.username;
+    // document.querySelector('.email-inp').value =this.currentMember.email;
     // console.log(document.querySelector('.form-inp').value)
+
+    let userName = document.querySelector('.username-inp') as HTMLInputElement;
+    userName.value = this.currentMember.username;
+
+    let Email = document.querySelector('.email-inp') as HTMLInputElement;
+    Email.value = this.currentMember.email;
   }
 
   deleteMember(): void {
@@ -102,14 +108,7 @@ export class MembersListComponent implements OnInit {
   updateMember(): void {
 
     this.message = '';
-    
-    // console.log(document.querySelector('.username-inp').value);
-    this.currentMember.username = document.querySelector('.username-inp').value;
-    this.currentMember.email = document.querySelector('.email-inp').value;
-    console.log(this.currentMember);
-
-        
-   
+ 
       this.memberService.update(this.currentMember._id, this.currentMember)
       .subscribe(
         response => {
