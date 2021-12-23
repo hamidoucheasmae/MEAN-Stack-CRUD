@@ -5,7 +5,6 @@ import { TokenStorageService } from 'src/app/_services/token-storage.service';
 import { UserService } from 'src/app/_services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-members-list',
   templateUrl: './members-list.component.html',
@@ -18,7 +17,6 @@ export class MembersListComponent implements OnInit {
   currentIndex = -1;
   username = '';
   message = '';
-  
 
   constructor(private memberService: MemberService, private tokenStorageService: TokenStorageService,private userService: UserService,private route: ActivatedRoute,
     private router: Router) { }
@@ -39,7 +37,6 @@ export class MembersListComponent implements OnInit {
          return false
       }
     );
-    
   }
 
   getMember(_id: string): void {
@@ -81,16 +78,12 @@ export class MembersListComponent implements OnInit {
     this.currentMember = members;
     this.currentIndex = index;
     console.log(members);
-    console.log(index);
-    // document.querySelector('.username-inp').value =this.currentMember.username;
-    // document.querySelector('.email-inp').value =this.currentMember.email;
-    // console.log(document.querySelector('.form-inp').value)
-
     let userName = document.querySelector('.username-inp') as HTMLInputElement;
     userName.value = this.currentMember.username;
 
     let Email = document.querySelector('.email-inp') as HTMLInputElement;
     Email.value = this.currentMember.email;
+    
   }
 
   deleteMember(): void {
@@ -108,8 +101,8 @@ export class MembersListComponent implements OnInit {
   updateMember(): void {
 
     this.message = '';
- 
-      this.memberService.update(this.currentMember._id, this.currentMember)
+
+    this.memberService.update(this.currentMember._id, this.currentMember)
       .subscribe(
         response => {
           console.log(response);

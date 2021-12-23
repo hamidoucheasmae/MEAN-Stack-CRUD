@@ -14,7 +14,7 @@ exports.create = (req, res) => {
 
   member.save((err, member) => {
     if (err){
-      res.status(500).send({ message: err});
+      res.status(500).send({ message: "Please provide a valid email address and password"});
       return
     }
 

@@ -11,16 +11,7 @@
   
       <fieldset>
         <div class="form-group">
-          <input
-            type="text"
-            name="username"
-            [(ngModel)]="form.username" 
-            required
-            minlength="3"
-            maxlength="20"
-            #username="ngModel"
-            placeholder="Username"
-          />
+          <input type="text" name="username" [(ngModel)]="form.username" required minlength="3" maxlength="20" #username="ngModel" placeholder="Username" />
           <div class="text-danger" *ngIf="username.errors && f.submitted">
             <div *ngIf="username.errors.required">Username is required !!</div>
             <div *ngIf="username.errors.minlength">
@@ -32,15 +23,7 @@
           </div>
         </div>
         <div class="form-group">
-          <input
-            type="email"
-            name="email"
-            [(ngModel)]="form.email"
-            required
-            email
-            #email="ngModel"
-            placeholder="Email"
-          />
+          <input type="email" name="email" [(ngModel)]="form.email" required #email="ngModel" placeholder="Email"/>
           <div class="text-danger" *ngIf="email.errors && f.submitted">
             <div *ngIf="email.errors.required">Email is required !!</div>
             <div *ngIf="email.errors.email">
@@ -49,15 +32,7 @@
           </div>
         </div>
         <div class="form-group">
-          <input
-            type="password"
-            name="password"
-            [(ngModel)]="form.password"
-            required
-            minlength="6"
-            #password="ngModel"
-            placeholder="Password"
-          />
+          <input type="password" name="password" [(ngModel)]="form.password" required minlength="6" #password="ngModel" placeholder="Password" />
           <div class="text-danger" *ngIf="password.errors && f.submitted">
             <div *ngIf="password.errors.required">Password is required !!</div>
             <div *ngIf="password.errors.minlength">
