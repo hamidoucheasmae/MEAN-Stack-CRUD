@@ -1,10 +1,10 @@
 .text-danger{
-    color : #b52b65 !important;
+    color : #322A7D !important;
   }
   
   .contain {
     font-family: 'M PLUS 1', sans-serif ;
-    background: rgba(3, 3, 55, 0.5);
+    background: #fff;
     width: 40vw;
     height: 70vh;
     margin: auto;
@@ -17,10 +17,10 @@
     vertical-align: middle;
     line-height: 3rem;
     height: 3rem;
-    background: rgba(3, 3, 55, 0.7);
+    background: #fff;
     font-size: 1.4rem;
     font-weight: 400;
-    color: #d3d3d3;
+    color: #322A7D;
   }
   
   fieldset {
@@ -30,7 +30,7 @@
   }
   
   .submit {
-    background: #b52b65;
+    background: #322A7D;
     border: none;
     display: block;
     margin: 0 auto;
@@ -45,9 +45,9 @@
     background: transparent;
     border: 0;
     border-left: 4px solid;
-    border-color: #b52b65;
+    border-color: #322A7D;
     padding: 10px;
-    color: white;
+    color: #322A7D;
     width: 70%;
     margin: 20px;
   }

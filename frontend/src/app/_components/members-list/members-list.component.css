@@ -1,21 +1,26 @@
 tbody td {
     cursor: pointer;
 }
+table,
+table th,
+table tr {
+    background-color: white !important;
+}
 
 .btn-danger{
-    background: #b52b65;
+    background: #F35162;
 }
 
 .btn-primary{
-    background: rgb(3, 3, 55);
+    background: #322A7D;
 }
 
 .btn-outline-danger{
-    border: #b52b65 1px solid;
-    color: #b52b65;
+    border: #F35162 1px solid;
+    color: #F35162;
 }
 
 .btn-outline-danger:hover{
-    background: #b52b65;
+    background: #F35162;
     color: #fff;
 }
